@@ -300,8 +300,8 @@ public class PlayerController2 : NetworkBehaviour {
 
             var misil = (GameObject)Instantiate(
             misilPreFab,
-            bulletSpawn.GetComponent<Transform>().position,
-            bulletSpawn.GetComponent<Transform>().rotation);
+            shotGunSpawn1.GetComponent<Transform>().position,
+            shotGunSpawn1.GetComponent<Transform>().rotation);
 
             // Add velocity to the bullet
             //    bala.GetComponent<Rigidbody>().velocity = bala.transform.forward * 6;
