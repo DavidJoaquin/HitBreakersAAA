@@ -3431,15 +3431,23 @@ MonoBehaviour:
   timerHabilidad1: 0
   timerHabilidad2: 0
   timerHabilidad3: 0
-  misilPreFab: {fileID: 0}
-  shotGunBulletPrefab: {fileID: 0}
-  shotGunSpawn1: {fileID: 0}
-  shotGunSpawn2: {fileID: 0}
-  shotGunSpawn3: {fileID: 0}
-  shotGunSpawn4: {fileID: 0}
-  shotGunSpawn5: {fileID: 0}
-  shotGunSpawn6: {fileID: 0}
-  shotGunSpawn7: {fileID: 0}
+  misilPreFab: {fileID: 1428630123266938, guid: 36f91bdf679ecf04cb6c2c8bd7fb2753,
+    type: 2}
+  shotGunBulletPrefab: {fileID: 1657871571907078}
+  shotGunSpawn1: {fileID: 1428630123266938, guid: d1094511fbdecdb4ebc95fa6312d7bea,
+    type: 2}
+  shotGunSpawn2: {fileID: 1428630123266938, guid: d1094511fbdecdb4ebc95fa6312d7bea,
+    type: 2}
+  shotGunSpawn3: {fileID: 1428630123266938, guid: d1094511fbdecdb4ebc95fa6312d7bea,
+    type: 2}
+  shotGunSpawn4: {fileID: 1428630123266938, guid: d1094511fbdecdb4ebc95fa6312d7bea,
+    type: 2}
+  shotGunSpawn5: {fileID: 1428630123266938, guid: d1094511fbdecdb4ebc95fa6312d7bea,
+    type: 2}
+  shotGunSpawn6: {fileID: 1428630123266938, guid: d1094511fbdecdb4ebc95fa6312d7bea,
+    type: 2}
+  shotGunSpawn7: {fileID: 1428630123266938, guid: d1094511fbdecdb4ebc95fa6312d7bea,
+    type: 2}
 --- !u!136 &136757757598046994
 CapsuleCollider:
   m_ObjectHideFlags: 1
