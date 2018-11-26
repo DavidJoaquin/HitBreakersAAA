@@ -16,6 +16,7 @@ public class PlayerController : NetworkBehaviour {
     //la cámara que usaremos para apuntar
     private Camera mainCamera;
     Vector3 apuntar;
+    private Vector3 ultimaDireccion;
 
     public ControladorCamara camaraPrinc;
 
@@ -40,11 +41,12 @@ public class PlayerController : NetworkBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        dash();
         //recogemos si se pulsa el eje de horizontal y el de vertical que definimos en la configuración del juego
         inputMovimiento = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
         //definimos que se mueva en esa dirección con la velocidad base
         velocidadMovimiento = inputMovimiento * velocidad;
-
+        ultimaDireccion = velocidadMovimiento;
         if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
         {
             animCont.GetComponent<Animator>().SetBool("andando", true);
@@ -74,6 +76,7 @@ public class PlayerController : NetworkBehaviour {
             // aquí hacemos que el player mire hacía el puntero, pero al forzar el eje y a la posicion del jugador, mirará siempre
             //recto en esa dirección
             posRaycast = new Vector3(apuntar.x, transform.position.y, apuntar.z);
+            
 
             transform.LookAt(posRaycast);
         }
@@ -89,8 +92,10 @@ public class PlayerController : NetworkBehaviour {
         //le decimos que la velocidad del player actualize su posición
         player.velocity = velocidadMovimiento;
     }
-    public Vector3 getApuntar() {
-        return apuntar;
+    private void dash() {
+        if (Input.GetButton("Jump")) {
+            float distancia = 0.1f;
+            transform.position += ultimaDireccion * distancia;
+        }
     }
-
 }
