@@ -676,7 +676,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh27330
+  m_Name: pb_Mesh161216
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -915,6 +915,12 @@ MonoBehaviour:
   camaraPrinc: {fileID: 2027648512}
   posRaycast: {x: 0, y: 0, z: 0}
   animCont: {fileID: 0}
+  assignAuthorityObj: {fileID: 0}
+  isFiring: 0
+  timeBetweenShots: 0
+  bulletPrefab: {fileID: 0}
+  bulletSpawn: {fileID: 0}
+  tiempoVidaBala: 0
 --- !u!136 &34269864
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2058,6 +2064,12 @@ MonoBehaviour:
   camaraPrinc: {fileID: 0}
   posRaycast: {x: 0, y: 0, z: 0}
   animCont: {fileID: 0}
+  assignAuthorityObj: {fileID: 0}
+  isFiring: 0
+  timeBetweenShots: 0
+  bulletPrefab: {fileID: 0}
+  bulletSpawn: {fileID: 0}
+  tiempoVidaBala: 0
 --- !u!136 &236045964
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2199,7 +2211,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 396290554}
@@ -11076,7 +11088,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh27420
+  m_Name: pb_Mesh161310
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -12022,7 +12034,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh26990
+  m_Name: pb_Mesh160866
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -15403,7 +15415,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh27352
+  m_Name: pb_Mesh161240
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -43960,7 +43972,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh27788
+  m_Name: pb_Mesh161692
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -44209,6 +44221,12 @@ MonoBehaviour:
   camaraPrinc: {fileID: 0}
   posRaycast: {x: 0, y: 0, z: 0}
   animCont: {fileID: 0}
+  assignAuthorityObj: {fileID: 0}
+  isFiring: 0
+  timeBetweenShots: 0
+  bulletPrefab: {fileID: 0}
+  bulletSpawn: {fileID: 0}
+  tiempoVidaBala: 0
 --- !u!136 &860588191
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -56764,7 +56782,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 352689344}
@@ -64493,7 +64511,6 @@ GameObject:
   - component: {fileID: 1239207271}
   - component: {fileID: 1239207270}
   - component: {fileID: 1239207269}
-  - component: {fileID: 1239207268}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -64501,20 +64518,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 127
   m_IsActive: 1
---- !u!64 &1239207268
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1239207267}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 1724397673}
 --- !u!114 &1239207269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74310,7 +74313,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh38274
+  m_Name: pb_Mesh161620
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -74504,7 +74507,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 1813846121}
@@ -77231,7 +77234,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: e05c56c14a2e14e48a30705da1fe8363, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -77860,7 +77863,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh27488
+  m_Name: pb_Mesh161380
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -85356,7 +85359,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh27650
+  m_Name: pb_Mesh161550
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -93496,7 +93499,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 757379708}
