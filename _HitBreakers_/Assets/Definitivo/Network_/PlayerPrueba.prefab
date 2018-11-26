@@ -1014,6 +1014,7 @@ GameObject:
   - component: {fileID: 23336379550245292}
   - component: {fileID: 65835497835436032}
   - component: {fileID: 114638892007792664}
+  - component: {fileID: 114056021736393688}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -3131,6 +3132,38 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114056021736393688
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1657871571907078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 161
+    i1: 161
+    i2: 141
+    i3: 101
+    i4: 101
+    i5: 111
+    i6: 234
+    i7: 180
+    i8: 249
+    i9: 36
+    i10: 74
+    i11: 83
+    i12: 19
+    i13: 42
+    i14: 222
+    i15: 65
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 1
 --- !u!114 &114183497241443350
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3208,6 +3241,10 @@ MonoBehaviour:
   tiempoVidaBala: 6
   dmgBala: 1
   animCont: {fileID: 1352887017958798}
+  player: {fileID: 1475250260568678}
+  bulletPrefab: {fileID: 1428630123266938, guid: 14a445e0c5d503b468c7146548b11f6e,
+    type: 2}
+  bulletSpawn: {fileID: 1637568257037112}
 --- !u!114 &114665854583729254
 MonoBehaviour:
   m_ObjectHideFlags: 1

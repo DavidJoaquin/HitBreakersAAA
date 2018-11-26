@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 
 public class ControladorCamara : NetworkBehaviour {
 
-    public Transform player;
+    public GameObject player;
     Vector3 target, mousePos, refVel, shakeOffset;
     float cameraDist = 8;
     float smoothTime = 0.2f, yStart;
@@ -16,16 +16,20 @@ public class ControladorCamara : NetworkBehaviour {
     void Start()
     {
         
-        target = player.position; //set default target
+        target = player.GetComponent<Transform>().position; //set default target
         yStart = transform.position.y; //capture current z position
     }
     void FixedUpdate()
     {
-        mousePos = CaptureMousePos(); //find out where the mouse is
-        shakeOffset = UpdateShake(); //account for screen shake
-        target = UpdateTargetPos(); //find out where the camera ought to be
-        target = new Vector3(target.x, 30f, target.z -10);
-        UpdateCameraPosition(); //smoothly move the camera closer to it's target location
+        if (player.GetComponent<NetworkBehaviour>().isLocalPlayer)
+        {
+            mousePos = CaptureMousePos(); //find out where the mouse is
+            shakeOffset = UpdateShake(); //account for screen shake
+            target = UpdateTargetPos(); //find out where the camera ought to be
+            target = new Vector3(target.x, 30f, target.z - 10);
+            UpdateCameraPosition(); //smoothly move the camera closer to it's target location
+        }
+        
     }
     Vector3 CaptureMousePos()
     {
@@ -43,7 +47,7 @@ public class ControladorCamara : NetworkBehaviour {
     Vector3 UpdateTargetPos()
     {
         Vector3 mouseOffset = mousePos * cameraDist; //mult mouse vector by distance scalar 
-        Vector3 ret = player.position + mouseOffset; //find position as it relates to the player
+        Vector3 ret = player.GetComponent<Transform>().position + mouseOffset; //find position as it relates to the player
         ret += shakeOffset; //add the screen shake vector to the target
         ret.y = yStart; //make sure camera stays at same Z coord
         return ret;
@@ -77,7 +81,7 @@ public class ControladorCamara : NetworkBehaviour {
 
     public void asignarPlayer(GameObject playerAAsignar)
     {
-        player = playerAAsignar.GetComponent<Transform>();
+        player = playerAAsignar;
     }
 
 }

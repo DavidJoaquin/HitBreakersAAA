@@ -20,7 +20,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/AEsteve/AEsteve_Scene/Mapa 1.unity
     guid: 3145a9e8deced394b8afd2e6489dec2d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Definitivo/Escenas/EscenaPrincipalCopia.unity
     guid: bf088d0d34767ff4a9b3b4b43c108982
+  - enabled: 1
+    path: Assets/Definitivo/Escenas/EscenaPrincipalCamraBien.unity
+    guid: 7358f1a1217a757429441d587cc8bc62
   m_configObjects: {}
