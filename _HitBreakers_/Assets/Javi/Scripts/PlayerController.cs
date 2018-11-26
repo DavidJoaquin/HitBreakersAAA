@@ -75,7 +75,7 @@ public class PlayerController : NetworkBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        dash();
+        //dash();
         //recogemos si se pulsa el eje de horizontal y el de vertical que definimos en la configuración del juego
         inputMovimiento = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
         //definimos que se mueva en esa dirección con la velocidad base
@@ -116,6 +116,7 @@ public class PlayerController : NetworkBehaviour {
         }
       
         shotCounter -= Time.deltaTime;
+        timerDash -= Time.deltaTime;
 
         if (isLocalPlayer)
         {
@@ -147,24 +148,32 @@ public class PlayerController : NetworkBehaviour {
                 shotCounter -= Time.deltaTime;
             }
         }
-        if (timerDash > 0 || timerHabilidad1 > 0 || timerHabilidad2 > 0 || timerHabilidad3 > 0) {
-            cdDash -= Time.deltaTime;
-            cdHabilidad1 -= Time.deltaTime;
-            cdHabilidad2 -= Time.deltaTime;
-            cdHabilidad3 -= Time.deltaTime;
+    //    if (timerDash > 0 || timerHabilidad1 > 0 || timerHabilidad2 > 0 || timerHabilidad3 > 0) {
+    //        cdDash -= Time.deltaTime;
+    //        cdHabilidad1 -= Time.deltaTime;
+    //        cdHabilidad2 -= Time.deltaTime;
+    //        cdHabilidad3 -= Time.deltaTime;
 
-        }   
-        if(timerDash < 0 || timerHabilidad1 < 0 || timerHabilidad2 < 0 || timerHabilidad3 < 0)
-        {
-            timerDash = 0f;
-            timerHabilidad1 = 0f;
-            timerHabilidad2 = 0f;
-            timerHabilidad3 = 0f;
+//        }   
+  //      if(timerDash < 0 || timerHabilidad1 < 0 || timerHabilidad2 < 0 || timerHabilidad3 < 0)
+    //    {
+    //        timerDash = 0f;
+    //        timerHabilidad1 = 0f;
+    //        timerHabilidad2 = 0f;
+    //        timerHabilidad3 = 0f;
 
-        }
-        if (Input.GetButton("Jump")) {
-            timerDash = cdDash;
-            dash();
+     //   }
+
+        if (Input.GetButtonDown("Jump")) {
+            if(timerDash <= 0)
+            {
+                dash();
+            }
+            else
+            {
+                timerDash -= Time.deltaTime;
+            }
+            
         }
         if (Input.GetButton("Fire1")) {
             timerHabilidad1 = cdHabilidad1;
@@ -226,9 +235,15 @@ public class PlayerController : NetworkBehaviour {
         //le decimos que la velocidad del player actualize su posición
         player.velocity = velocidadMovimiento;
     }
+
+
+
+
+
     private void dash() {
       
-         transform.position += ultimaDireccion * distancia;
+        transform.position += ultimaDireccion * distancia;
+        timerDash = cdDash;
         
     }
 }
