@@ -53,9 +53,6 @@ public class GunController : NetworkBehaviour {
             }
         }
 
-        
-
-
         //Si isFiring es true
         if (isFiring)
         {
@@ -100,7 +97,7 @@ public class GunController : NetworkBehaviour {
             NetworkServer.Spawn(bala);
 
             // Destroy the bullet after 2 seconds
-            Destroy(bullet, tiempoVidaBala);
+            Destroy(bala, tiempoVidaBala);
 
 
 
