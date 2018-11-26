@@ -24,6 +24,17 @@ public class PlayerController : NetworkBehaviour {
 
     public GameObject animCont;
 
+    public GameObject assignAuthorityObj;
+
+    public bool isFiring;
+
+    private float shotCounter;
+
+    public float timeBetweenShots;
+
+    public GameObject bulletPrefab;
+    public GameObject bulletSpawn;
+    public float tiempoVidaBala;
 
     // Use this for initialization
     void Start () {
@@ -86,7 +97,87 @@ public class PlayerController : NetworkBehaviour {
           
         }
 
+
+
+
+        shotCounter -= Time.deltaTime;
+
+
+
+
+        if (isLocalPlayer)
+        {
+
+            animCont.GetComponent<Animator>().SetBool("disparando", false);
+
+            //Si se pulsa el boton, en este caso el click izquierdo del raton, la variable isFiring pasa a true.
+            if (Input.GetMouseButtonDown(0))
+            {
+                isFiring = true;
+            }
+
+            //Si soltamos el boton, en este caso el click izquierdo del raton, la variable isFiring pasa a false.
+            if (Input.GetMouseButtonUp(0))
+            {
+                isFiring = false;
+            }
+        }
+
+        //Si isFiring es true
+        if (isLocalPlayer)
+        {
+            if (isFiring)
+            {
+                CmdFire();
+            }
+            else
+            {
+                shotCounter -= Time.deltaTime;
+            }
+        }
+        
+
     }
+
+    [Command]
+    void CmdFire()
+    {
+        shotCounter -= Time.deltaTime;
+        //Cuando shotCounter llega a 0
+        if (shotCounter <= 0)
+        {
+            //Reiniciamos shotCounter al valor de timeBetweenShots, esto nos permite ajustar el tiempo entre disparos.
+            shotCounter = timeBetweenShots;
+            animCont.GetComponent<Animator>().SetBool("disparando", true);
+            //Instanciamos el objeto bala en la posicion del objeto de referencia firePoint, con su posicion y su rotacion.
+            //    BulletController newBullet = Instantiate(bullet, firePoint.position, firePoint.rotation) as BulletController;
+            //    //Asignamos la velocidad a la bala.
+            //    newBullet.speed = bulletSpeed;
+            //    newBullet.tiempoVida = tiempoVidaBala;
+            //    newBullet.dmgBala = dmgBala;
+
+
+            Debug.Log("DISPARO");
+
+            var bala = (GameObject)Instantiate(
+            bulletPrefab,
+            bulletSpawn.GetComponent<Transform>().position,
+            bulletSpawn.GetComponent<Transform>().rotation);
+
+            // Add velocity to the bullet
+            //    bala.GetComponent<Rigidbody>().velocity = bala.transform.forward * 6;
+
+            // Spawn the bullet on the Clients
+            NetworkServer.Spawn(bala);
+
+            // Destroy the bullet after 2 seconds
+            //    Destroy(bala, tiempoVidaBala);
+
+        }
+    }
+
+
+
     private void FixedUpdate()
     {
         //le decimos que la velocidad del player actualize su posición

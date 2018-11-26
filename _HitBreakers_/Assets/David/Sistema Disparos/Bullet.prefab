@@ -254,8 +254,8 @@ MonoBehaviour:
   m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TransformSyncMode: 1
-  m_SendInterval: 0.03846154
+  m_TransformSyncMode: 3
+  m_SendInterval: 0.04761905
   m_SyncRotationAxis: 7
   m_RotationSyncCompression: 0
   m_SyncSpin: 0
@@ -294,8 +294,8 @@ MonoBehaviour:
     i13: 177
     i14: 31
     i15: 110
-  m_ServerOnly: 1
-  m_LocalPlayerAuthority: 0
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 1
 --- !u!114 &114510808445660414
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -307,9 +307,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54de5f6ba6ed67b4d84c50f2b2a69376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 500
-  tiempoVida: 0
-  dmgBala: 0
+  speed: 50
+  tiempoVida: 6
+  dmgBala: 1
 --- !u!135 &135218499776340156
 SphereCollider:
   m_ObjectHideFlags: 1
