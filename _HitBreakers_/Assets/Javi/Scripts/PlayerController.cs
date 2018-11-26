@@ -36,8 +36,31 @@ public class PlayerController : NetworkBehaviour {
     public GameObject bulletSpawn;
     public float tiempoVidaBala;
 
+    public float distancia;
+    public float cdDash;
+    public float timerDash;
+
+    public float cdHabilidad1;
+    public float cdHabilidad2;
+    public float cdHabilidad3;
+
+    public float timerHabilidad1;
+    public float timerHabilidad2;
+    public float timerHabilidad3;
+
     // Use this for initialization
     void Start () {
+        cdDash = 4f;
+        cdHabilidad1 = 4f;
+        cdHabilidad2 = 4f;
+        cdHabilidad3 = 4f;
+        timerHabilidad1 = 0f;
+        timerHabilidad2 = 0f;
+        timerHabilidad3 = 0f;
+
+        timerDash = 0f;
+        distancia = 0.8f;
+
         //asignamos el player al Rigidbody que hemos definido (solo hay uno por ahora, habrá que ver como lo hacemos luego con los items)
         player = GetComponent<Rigidbody>();
         //lo mismo con la cámara, tendremos que usar tags o algo luego para definir la que queremos
@@ -91,19 +114,8 @@ public class PlayerController : NetworkBehaviour {
 
             transform.LookAt(posRaycast);
         }
-
-        if (Input.GetButton("Habilidad1"))
-        {
-          
-        }
-
-
-
-
+      
         shotCounter -= Time.deltaTime;
-
-
-
 
         if (isLocalPlayer)
         {
@@ -135,8 +147,39 @@ public class PlayerController : NetworkBehaviour {
                 shotCounter -= Time.deltaTime;
             }
         }
-        
+        if (timerDash > 0 || timerHabilidad1 > 0 || timerHabilidad2 > 0 || timerHabilidad3 > 0) {
+            cdDash -= Time.deltaTime;
+            cdHabilidad1 -= Time.deltaTime;
+            cdHabilidad2 -= Time.deltaTime;
+            cdHabilidad3 -= Time.deltaTime;
 
+        }   
+        if(timerDash < 0 || timerHabilidad1 < 0 || timerHabilidad2 < 0 || timerHabilidad3 < 0)
+        {
+            timerDash = 0f;
+            timerHabilidad1 = 0f;
+            timerHabilidad2 = 0f;
+            timerHabilidad3 = 0f;
+
+        }
+        if (Input.GetButton("Jump")) {
+            timerDash = cdDash;
+            dash();
+        }
+        if (Input.GetButton("Fire1")) {
+            timerHabilidad1 = cdHabilidad1;
+            //método
+        }
+        if (Input.GetButton("Fire2"))
+        {
+            timerHabilidad1 = cdHabilidad1;
+            //método
+        }
+        if (Input.GetButton("Fire3"))
+        {
+            timerHabilidad1 = cdHabilidad1;
+            //método
+        }
     }
 
     [Command]
@@ -184,9 +227,8 @@ public class PlayerController : NetworkBehaviour {
         player.velocity = velocidadMovimiento;
     }
     private void dash() {
-        if (Input.GetButton("Jump")) {
-            float distancia = 0.1f;
-            transform.position += ultimaDireccion * distancia;
-        }
+      
+         transform.position += ultimaDireccion * distancia;
+        
     }
 }
