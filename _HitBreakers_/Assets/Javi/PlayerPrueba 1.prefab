@@ -1014,13 +1014,14 @@ GameObject:
   - component: {fileID: 23336379550245292}
   - component: {fileID: 65835497835436032}
   - component: {fileID: 114638892007792664}
+  - component: {fileID: 114056021736393688}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1666617225755138
 GameObject:
   m_ObjectHideFlags: 1
@@ -1714,7 +1715,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1475250260568678}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.980313, y: 6.253673, z: -23.299965}
+  m_LocalPosition: {x: -53.55, y: 1.73, z: -0.30890018}
   m_LocalScale: {x: 1, y: 1.6, z: 1}
   m_Children:
   - {fileID: 4500184192488560}
@@ -3131,6 +3132,38 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114056021736393688
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1657871571907078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 88
+    i1: 54
+    i2: 73
+    i3: 56
+    i4: 87
+    i5: 178
+    i6: 144
+    i7: 4
+    i8: 235
+    i9: 9
+    i10: 201
+    i11: 56
+    i12: 182
+    i13: 74
+    i14: 225
+    i15: 181
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 1
 --- !u!114 &114183497241443350
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3156,22 +3189,22 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 192
-    i1: 145
-    i2: 70
-    i3: 160
-    i4: 135
-    i5: 104
-    i6: 138
-    i7: 36
-    i8: 122
-    i9: 122
-    i10: 67
-    i11: 153
-    i12: 28
-    i13: 77
-    i14: 135
-    i15: 98
+    i0: 88
+    i1: 54
+    i2: 73
+    i3: 56
+    i4: 87
+    i5: 178
+    i6: 144
+    i7: 4
+    i8: 235
+    i9: 9
+    i10: 201
+    i11: 56
+    i12: 182
+    i13: 74
+    i14: 225
+    i15: 181
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
 --- !u!114 &114632007112856468
@@ -3208,6 +3241,10 @@ MonoBehaviour:
   tiempoVidaBala: 6
   dmgBala: 1
   animCont: {fileID: 1352887017958798}
+  player: {fileID: 1475250260568678}
+  bulletPrefab: {fileID: 1428630123266938, guid: 14a445e0c5d503b468c7146548b11f6e,
+    type: 2}
+  bulletSpawn: {fileID: 1637568257037112}
 --- !u!114 &114665854583729254
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3241,6 +3278,23 @@ MonoBehaviour:
   camaraPrinc: {fileID: 0}
   posRaycast: {x: 0, y: 0, z: 0}
   animCont: {fileID: 1352887017958798}
+  assignAuthorityObj: {fileID: 1657871571907078}
+  isFiring: 0
+  timeBetweenShots: 0.6
+  misilPreFab: {fileID: 0}
+  bulletPrefab: {fileID: 1428630123266938, guid: 14a445e0c5d503b468c7146548b11f6e,
+    type: 2}
+  bulletSpawn: {fileID: 1637568257037112}
+  tiempoVidaBala: 6
+  distancia: 0
+  cdDash: 0
+  timerDash: 4
+  cdHabilidad1: 0
+  cdHabilidad2: 0
+  cdHabilidad3: 0
+  timerHabilidad1: 0
+  timerHabilidad2: 0
+  timerHabilidad3: 0
 --- !u!136 &136757757598046994
 CapsuleCollider:
   m_ObjectHideFlags: 1
