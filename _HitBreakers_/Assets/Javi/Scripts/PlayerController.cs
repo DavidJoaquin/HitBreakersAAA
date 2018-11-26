@@ -32,6 +32,7 @@ public class PlayerController : NetworkBehaviour {
 
     public float timeBetweenShots;
 
+    public GameObject misilPreFab;
     public GameObject bulletPrefab;
     public GameObject bulletSpawn;
     public float tiempoVidaBala;
@@ -117,6 +118,9 @@ public class PlayerController : NetworkBehaviour {
       
         shotCounter -= Time.deltaTime;
         timerDash -= Time.deltaTime;
+        timerHabilidad1 -= Time.deltaTime;
+        timerHabilidad2 -= Time.deltaTime;
+        timerHabilidad3 -= Time.deltaTime;
 
         if (isLocalPlayer)
         {
@@ -148,22 +152,7 @@ public class PlayerController : NetworkBehaviour {
                 shotCounter -= Time.deltaTime;
             }
         }
-    //    if (timerDash > 0 || timerHabilidad1 > 0 || timerHabilidad2 > 0 || timerHabilidad3 > 0) {
-    //        cdDash -= Time.deltaTime;
-    //        cdHabilidad1 -= Time.deltaTime;
-    //        cdHabilidad2 -= Time.deltaTime;
-    //        cdHabilidad3 -= Time.deltaTime;
-
-//        }   
-  //      if(timerDash < 0 || timerHabilidad1 < 0 || timerHabilidad2 < 0 || timerHabilidad3 < 0)
-    //    {
-    //        timerDash = 0f;
-    //        timerHabilidad1 = 0f;
-    //        timerHabilidad2 = 0f;
-    //        timerHabilidad3 = 0f;
-
-     //   }
-
+    
         if (Input.GetButtonDown("Jump")) {
             if(timerDash <= 0)
             {
@@ -176,18 +165,35 @@ public class PlayerController : NetworkBehaviour {
             
         }
         if (Input.GetButton("Fire1")) {
-            timerHabilidad1 = cdHabilidad1;
-            //método
+            if (timerHabilidad1 <= 0)
+            {
+                CmdHabilidad1();
+            }
+            else
+            {
+                timerHabilidad1 -= Time.deltaTime;
+            }
         }
-        if (Input.GetButton("Fire2"))
-        {
-            timerHabilidad1 = cdHabilidad1;
-            //método
+        if (Input.GetButton("Fire2")){
+            if (timerHabilidad2 <= 0)
+            {
+                //    dash();
+            }
+            else
+            {
+                timerHabilidad2 -= Time.deltaTime;
+            }
         }
         if (Input.GetButton("Fire3"))
         {
-            timerHabilidad1 = cdHabilidad1;
-            //método
+            if (timerHabilidad3 <= 0)
+            {
+                //    dash();
+            }
+            else
+            {
+                timerHabilidad3 -= Time.deltaTime;
+            }
         }
     }
 
@@ -227,7 +233,42 @@ public class PlayerController : NetworkBehaviour {
 
         }
     }
+    [Command]
+    void CmdHabilidad1()
+    {
+        timerHabilidad1 -= Time.deltaTime;
+        //Cuando shotCounter llega a 0
+        if (timerHabilidad1 <= 0)
+        {
+            //Reiniciamos shotCounter al valor de timeBetweenShots, esto nos permite ajustar el tiempo entre disparos.
+            timerHabilidad1 = cdHabilidad1;
+            animCont.GetComponent<Animator>().SetBool("disparando", true);
+            //Instanciamos el objeto bala en la posicion del objeto de referencia firePoint, con su posicion y su rotacion.
+            //    BulletController newBullet = Instantiate(bullet, firePoint.position, firePoint.rotation) as BulletController;
+            //    //Asignamos la velocidad a la bala.
+            //    newBullet.speed = bulletSpeed;
+            //    newBullet.tiempoVida = tiempoVidaBala;
+            //    newBullet.dmgBala = dmgBala;
 
+
+            Debug.Log("Habilidad1");
+
+            var misil = (GameObject)Instantiate(
+            misilPreFab,
+            bulletSpawn.GetComponent<Transform>().position,
+            bulletSpawn.GetComponent<Transform>().rotation);
+
+            // Add velocity to the bullet
+            //    bala.GetComponent<Rigidbody>().velocity = bala.transform.forward * 6;
+
+            // Spawn the bullet on the Clients
+            NetworkServer.Spawn(misil);
+
+            // Destroy the bullet after 2 seconds
+            //    Destroy(bala, tiempoVidaBala);
+
+        }
+    }
 
 
     private void FixedUpdate()
