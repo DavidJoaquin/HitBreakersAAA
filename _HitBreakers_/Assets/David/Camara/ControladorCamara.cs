@@ -24,7 +24,7 @@ public class ControladorCamara : NetworkBehaviour {
         mousePos = CaptureMousePos(); //find out where the mouse is
         shakeOffset = UpdateShake(); //account for screen shake
         target = UpdateTargetPos(); //find out where the camera ought to be
-        target = new Vector3(target.x, 30f, target.z);
+        target = new Vector3(target.x, 30f, target.z -10);
         UpdateCameraPosition(); //smoothly move the camera closer to it's target location
     }
     Vector3 CaptureMousePos()
